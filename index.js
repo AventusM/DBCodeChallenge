@@ -10,19 +10,22 @@ app.post('/analyze', (request, response) => {
   // Error handling here ...
   const missingText = text === undefined
   if (missingText) {
-    return response.status(400).json({ error: "Missing text" })
+    return response.status(400).json({ error: 'Missing text' })
   }
 
   const tooShortText = text.trim().length === 0 // Must reside here to avoid errors in undefined version
   if (tooShortText) {
-    return response.status(400).json({ error: "Your text seems to consist of whitespace only" })
+    return response.status(400).json({ error: 'Your text seems to consist of whitespace only' })
   }
   // End error handling
 
+  // NOTICE -- CHANGE TEXT TO LOWER CASE
+  lowCaseText = text.toLowerCase()
+  // END NOTICE
   const analysis = {
-    textLength: getTextLengthProps(text),
-    wordCount: getTextWordCount(text),
-    characterCount: getCharacterCountFrom(text)
+    textLength: getTextLengthProps(lowCaseText),
+    wordCount: getTextWordCount(lowCaseText),
+    characterCount: getCharacterCountFrom(lowCaseText)
   }
 
   // Return parsed data
@@ -87,4 +90,10 @@ const getTextWordCount = (param) => {
 
 // Heroku support along with local testing pusposes
 const PORT = process.env.PORT || 3001
-app.listen(PORT)
+const listener = app.listen(PORT)
+
+// For testing with supertest
+// https://stackoverflow.com/questions/14515954/how-to-properly-close-node-express-server
+module.exports = {
+  listener
+}

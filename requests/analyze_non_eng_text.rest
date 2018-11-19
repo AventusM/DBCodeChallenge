@@ -2,5 +2,5 @@ POST http://localhost:3001/analyze
 content-type: application/json
 
 {
-  "text": "hellö två times  "
+  "text": "HELLÖ två times  "
 }
