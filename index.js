@@ -85,6 +85,6 @@ const getTextWordCount = (param) => {
   return trimmedTextArray.length
 }
 
-// For local testing purposes
-const PORT = 3001
+// Heroku support along with local testing pusposes
+const PORT = process.env.PORT || 3001
 app.listen(PORT)
