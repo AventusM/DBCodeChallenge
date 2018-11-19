@@ -40,7 +40,6 @@ it('returns valid information on stripped text', async () => {
   expect(wordCount).toBe(2)
 
   // Millaisia testitapauksia tämmöiselle pitäisi mielestänne laittaa..?
-  // Laitan pari erillistä testiä tekstinkäsittelymetodeista
   expect(characterCount[0]['e']).toBe(2) // käsitelty merkkijono 'jteltie'
 })
 
