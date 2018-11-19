@@ -54,7 +54,7 @@ const getTextLengthProps = (param) => {
 }
 
 const getTextWordCount = (param) => {
-  const trimmedTextArray = param.trim().split(' ')
+  const trimmedTextArray = param.trim().split(' ').filter(element => element.length > 0)
   return trimmedTextArray.length
 }
 

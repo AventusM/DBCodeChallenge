@@ -14,10 +14,10 @@ app.post('/analyze', (request, response) => {
     return response.status(400).json({ error: 'Missing text' })
   }
 
-  const tooShortText = text.trim().length === 0 // Must reside here to avoid errors in undefined version
-  if (tooShortText) {
-    return response.status(400).json({ error: 'Your text seems to consist of whitespace only' })
-  }
+  // const tooShortText = text.trim().length === 0 // Must reside here to avoid errors in undefined version
+  // if (tooShortText) {
+  //   return response.status(400).json({ error: 'Your text seems to consist of whitespace only' })
+  // }
   // End error handling
 
   // NOTICE -- CHANGE TEXT TO LOWER CASE
